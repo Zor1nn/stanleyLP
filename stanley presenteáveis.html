@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Presentes | Stanley</title>
+    <!-- Carrega o Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carrega a fonte Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Define a fonte Inter como padrão */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Cores personalizadas inspiradas na Stanley e no Natal */
+        .bg-stanley-black { background-color: #1a1a1a; }
+        .bg-stanley-red { background-color: #d81920; } /* Vermelho de Natal */
+        .text-stanley-black { color: #1a1a1a; }
+        .hover\:bg-stanley-red-dark { hover: { background-color: #b2141a; } }
+        
+        /* Estilização do FAQ (details/summary) para parecer com o Print 6 */
+        details > summary {
+            list-style: none; /* Remove o marcador padrão */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            cursor: pointer;
+            font-weight: 600; /* Texto em negrito como no print */
+            font-size: 1.125rem; /* 18px */
+            color: #1a1a1a;
+        }
+
+        details > summary::-webkit-details-marker {
+            display: none; /* Remove o marcador no Safari */
+        }
+
+        /* Ícone de seta (chevron) */
+        details > summary svg {
+            transition: transform 0.2s ease-in-out;
+            flex-shrink: 0; /* Impede que o ícone seja espremido */
+            margin-left: 1rem;
+        }
+
+        /* Gira a seta quando o item está aberto */
+        details[open] > summary svg {
+            transform: rotate(180deg);
+        }
+
+        /* Conteúdo do FAQ */
+        details > div {
+            padding: 1rem 0 1.5rem 0;
+            color: #374151; /* Cinza escuro para o texto */
+            line-height: 1.6;
+        }
+
+        /* Remove a borda inferior do último item do FAQ */
+        details:last-of-type > summary {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        details:last-of-type {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        details[open]:last-of-type {
+            border-bottom: none; /* Remove a borda duplicada quando o último está aberto */
+        }
+
+        /* Estilo do botão "Ver Mais" para o texto de categoria */
+        .ver-mais-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-decoration: none;
+            border: 2px solid #1a1a1a;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* 6px */
+            transition: all 0.2s;
+        }
+        .ver-mais-btn:hover {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-white text-stanley-black">
+
+    <!-- Header Simples (Logo Stanley) -->
+    <header class="border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <!-- 1 - Logo atualizada -->
+            <img class="h-8 w-auto" src="https://www.stanley1913.com.br/cdn/shop/files/Stanley_Brandmark_Primary_Horizontal.png?v=1753286823&width=210" alt="Stanley Logo">
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+
+        <!-- 1. Texto de introdução (Print 1) - Alinhado à esquerda -->
+        <section class="mb-12 md:mb-20">
+            <div class="max-w-3xl"> <!-- Limita a largura para melhor legibilidade, mas alinha à esquerda -->
+                <h1 class="text-3xl md:text-4xl font-bold text-stanley-black mb-4">
+                    GUIA DE PRESENTES STANLEY: OPÇÕES LENDÁRIAS PARA CELEBRAR!
+                </h1>
+                <!-- 2 - Texto inicial reduzido para 2 parágrafos -->
+                <div class="text-base text-gray-700 space-y-4">
+                    <p>Na Stanley, cada data comemorativa é uma oportunidade de celebrar momentos e criar memórias. Seja para presentear alguém especial ou para renovar seus produtos favoritos, temos uma seleção lendária que combina com todas as ocasiões e aventuras.</p>
+                    <p>Aqui, você encontra uma variedade incrível de copos, canecas e garrafas com a qualidade que você já conhece, da linha Bar para o churrasco à linha de hidratação para amantes de café. Com opções clássicas e lançamentos, você sempre encontra o par perfeito para cada ocasião.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Seção 1: Presentes de Natal (Bar) -->
+        <section class="mb-12 md:mb-16">
+            <div class="md:flex md:items-center md:justify-between mb-6">
+                <!-- Título e Texto da Seção -->
+                <div class="max-w-xl mb-6 md:mb-0">
+                    <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-3">Presentes de Natal: Brindes Inesquecíveis</h2>
+                    <p class="text-gray-700">Este Natal, surpreenda quem você ama com um presente que dura a vida toda. Nossa seleção da linha Bar é perfeita para celebrar os melhores momentos, mantendo a bebida na temperatura ideal.</p>
+                </div>
+                <!-- Botão (Visível em Desktop) -->
+                <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="hidden md:inline-block bg-stanley-red text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-stanley-red-dark transition-colors">
+                    Ver Todos da Linha Bar
+                </a>
+            </div>
+
+            <!-- 2, 3, 4. Carrossel de 3 Produtos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Produto 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                    <a href="#" class="block">
+                        <!-- 3 - Imagem 1 atualizada -->
+                        <img src="https://www.stanley1913.com.br/cdn/shop/files/copo_473_polar_500x.png?v=1729691723" alt="Copo Térmico Polar" class="w-full h-80 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-stanley-black mb-1">Copo Térmico de Cerveja c/ Tampa | 473ML</h3>
+                            <p class="text-gray-900 font-bold text-xl">R$ 185,00</p>
+                            <p class="text-gray-500 text-sm">ou 10x de R$ 18,50</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Produto 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                    <a href="#" class="block">
+                        <!-- 3 - Imagem 2 atualizada -->
+                        <img src="https://www.stanley1913.com.br/cdn/shop/files/285398-14_500x.jpg?v=1739476299" alt="Caneca Térmica de Cerveja" class="w-full h-80 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-stanley-black mb-1">Caneca Térmica de Cerveja | 709ML</h3>
+                            <p class="text-gray-900 font-bold text-xl">R$ 220,00</p>
+                            <p class="text-gray-500 text-sm">ou 10x de R$ 22,00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Produto 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                    <a href="#" class="block">
+                        <!-- 3 - Imagem 3 atualizada -->
+                        <img src="https://www.stanley1913.com.br/cdn/shop/files/quickflip_black_500x.png?v=1741356061" alt="Garrafa Térmica Quick Flip" class="w-full h-80 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-stanley-black mb-1">Garrafa Térmica Classic c/ Rolha | 1L</h3>
+                            <p class="text-gray-900 font-bold text-xl">R$ 385,00</p>
+                            <p class="text-gray-500 text-sm">ou 10x de R$ 38,50</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Botão (Visível em Mobile) -->
+            <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="mt-6 md:hidden w-full text-center bg-stanley-red text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-stanley-red-dark transition-colors">
+                Ver Todos da Linha Bar
+            </a>
+        </section>
+        
+        <!-- 6. Seção 2: Presentes para Amantes de Café -->
+        <!-- Fundo alternado (como no Print 4) -->
+        <section class="bg-gray-50 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-12 md:py-16 mb-12 md:mb-16">
+            <div class="max-w-7xl mx-auto">
+                <div class="md:flex md:items-center md:justify-between mb-6">
+                    <!-- Título e Texto da Seção -->
+                    <div class="max-w-xl mb-6 md:mb-0">
+                        <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-3">Para Amantes de Café</h2>
+                        <p class="text-gray-700">O presente ideal para quem não abre mão de um bom café. Nossos produtos mantêm a bebida na temperatura perfeita, da primeira à última gota, seja na trilha ou no escritório.</p>
+                    </div>
+                    <!-- Botão (Visível em Desktop) -->
+                    <a href="https://www.stanley1913.com.br/collections/cafe" target="_blank" class="hidden md:inline-block bg-stanley-red text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-stanley-red-dark transition-colors">
+                        Ver Todos da Linha Café
+                    </a>
+                </div>
+
+                <!-- Carrossel de 3 Produtos -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Produto 1 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white">
+                        <a href="#" class="block">
+                            <!-- 1 - Imagem 1 atualizada -->
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/everyday_stainless_500x.png?v=1730203907" alt="Copo Térmico Everyday" class="w-full h-80 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg text-stanley-black mb-1">Copo Térmico Everyday | 296ML</h3>
+                                <p class="text-gray-900 font-bold text-xl">R$ 130,00</p>
+                                <p class="text-gray-500 text-sm">ou 6x de R$ 21,66</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Produto 2 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white">
+                        <a href="#" class="block">
+                            <!-- 1 - Imagem 2 atualizada -->
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/adventure_toast_1_500x.png?v=1752510126" alt="Garrafa Térmica Adventure" class="w-full h-80 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg text-stanley-black mb-1">Garrafa Térmica Classic | 1.4L</h3>
+                                <p class="text-gray-900 font-bold text-xl">R$ 410,00</p>
+                                <p class="text-gray-500 text-sm">ou 10x de R$ 41,00</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Produto 3 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-white">
+                        <a href="#" class="block">
+                            <!-- 1 - Imagem 3 atualizada -->
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/285325-14_500x.jpg?v=1719250876" alt="Caneca Térmica Camp" class="w-full h-80 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg text-stanley-black mb-1">Caneca Térmica Camp | 354ML</h3>
+                                <p class="text-gray-900 font-bold text-xl">R$ 165,00</p>
+                                <p class="text-gray-500 text-sm">ou 8x de R$ 20,62</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Botão (Visível em Mobile) -->
+                <a href="https://www.stanley1913.com.br/collections/cafe" target="_blank" class="mt-6 md:hidden w-full text-center bg-stanley-red text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-stanley-red-dark transition-colors">
+                    Ver Todos da Linha Café
+                </a>
+            </div>
+        </section>
+
+        <!-- 7. Seção 3: Presentes para Dia dos Pais (Bar) -->
+        <section class="mb-12 md:mb-16">
+            <div class="md:flex md:items-center md:justify-between mb-6">
+                <!-- Título e Texto da Seção -->
+                <div class="max-w-xl mb-6 md:mb-0">
+                    <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-3">Presentes para o Dia dos Pais</h2>
+                    <p class="text-gray-700">Seu pai merece um presente lendário. A linha Bar é a escolha certa para pais que apreciam um bom happy hour, garantindo a cerveja gelada até o último gole.</p>
+                </div>
+                <!-- Botão (Visível em Desktop) -->
+                <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="hidden md:inline-block bg-stanley-red text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-stanley-red-dark transition-colors">
+                    Ver Todos da Linha Bar
+                </a>
+            </div>
+
+            <!-- Carrossel de 3 Produtos (Mesmos produtos da Seção 1, como solicitado) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Produto 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                    <a href="#" class="block">
+                        <!-- 2 - Imagem 1 atualizada -->
+                        <img src="https://www.stanley1913.com.br/cdn/shop/files/copo_pomegranate1.png?v=1739630783&width=700" alt="Copo Térmico Pomegranate" class="w-full h-80 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-stanley-black mb-1">Copo Térmico de Cerveja c/ Tampa | 473ML</h3>
+                            <p class="text-gray-900 font-bold text-xl">R$ 185,00</p>
+                            <p class="text-gray-500 text-sm">ou 10x de R$ 18,50</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Produto 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                    <a href="#" class="block">
+                        <!-- 2 - Imagem 2 atualizada -->
+                        <img src="https://www.stanley1913.com.br/cdn/shop/files/285442-10_500x.jpg?v=1747143762" alt="Caneca Térmica" class="w-full h-80 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-stanley-black mb-1">Caneca Térmica de Cerveja | 709ML</h3>
+                            <p class="text-gray-900 font-bold text-xl">R$ 220,00</p>
+                            <p class="text-gray-500 text-sm">ou 10x de R$ 22,00</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Produto 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                    <a href="#" class="block">
+                        <!-- 2 - Imagem 3 atualizada -->
+                        <img src="https://www.stanley1913.com.br/cdn/shop/files/growler_black_500x.png?v=1730208136" alt="Growler Térmico Black" class="w-full h-80 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-stanley-black mb-1">Garrafa Térmica Classic c/ Rolha | 1L</h3>
+                            <p class="text-gray-900 font-bold text-xl">R$ 385,00</p>
+                            <p class="text-gray-500 text-sm">ou 10x de R$ 38,50</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Botão (Visível em Mobile) -->
+            <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="mt-6 md:hidden w-full text-center bg-stanley-red text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-stanley-red-dark transition-colors">
+                Ver Todos da Linha Bar
+            </a>
+        </section>
+
+        <!-- 8. Seção de Texto de Categoria com Ver Mais (Print 5) -->
+        <section class="mt-16 md:mt-24 pt-8 border-t border-gray-200">
+            <div class="max-w-3xl"> <!-- Limita a largura para legibilidade -->
+                <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-4">Mais sobre Nossos Presentes</h2>
+                <div id="category-text" class="text-gray-700 space-y-4 max-h-40 overflow-hidden transition-all duration-500 ease-in-out">
+                    <p>Encontrar o presente perfeito pode ser um desafio, mas a Stanley facilita para você. Nossos produtos são feitos para durar, com a lendária garantia vitalícia e o poder de manter suas bebidas na temperatura ideal por horas a fio.</p>
+                    <p>Seja para o aventureiro que ama acampar, o mestre churrasqueiro que comanda a grelha, ou o fã de café que precisa daquela energia extra pela manhã, existe um Stanley perfeito para cada estilo de vida.</p>
+                    <p class="hidden-text">Navegue por nossas coleções e descubra a variedade de cores e modelos. Além de icônicos, nossos produtos são práticos, portáteis e ajudam a reduzir o lixo descartável. Um presente Stanley não é apenas um produto, é um convite para novas aventuras e momentos inesquecíveis.</p>
+                    <p class="hidden-text">Neste Natal, escolha um presente que vai ser lembrado (e usado) o ano todo. Escolha Stanley.</p>
+                </div>
+                <button id="ver-mais-btn" class="ver-mais-btn" aria-expanded="false" aria-controls="category-text">
+                    Ver mais+
+                </button>
+            </div>
+        </section>
+        
+        <!-- 9. Seção de FAQ (Print 5 & 6) -->
+        <section class="mt-16 md:mt-24 max-w-3xl"> <!-- Limita a largura para consistência -->
+            <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-4">Perguntas Frequentes</h2>
+            
+            <!-- Item 1: Aberto por padrão -->
+            <details open>
+                <summary>
+                    <span>Como identificar uma Stanley original?</span>
+                    <!-- Ícone Chevron -->
+                    <svg class="w-6 h-6 text-stanley-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <!-- Conteúdo do FAQ -->
+                <div>
+                    <p>Para identificar se uma Stanley é original e não comprar uma falsificação, é importante que você observe se:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li>O produto é feito em aço escovado;</li>
+                        <li>As informações de fabricação estão na base;</li>
+                        <li>Nossa logomarca foi impressa ou pintada, pois não a usamos em adesivo nem a aplicamos com laser;</li>
+                        <li>A Stanley que você viu na loja está presente em outros canais de venda com a mesma cor e modelo.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Item 2: Fechado -->
+            <details>
+                <summary>
+                    <span>Qual a garantia dos produtos Stanley?</span>
+                    <svg class="w-6 h-6 text-stanley-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div>
+                    <p>Os produtos Stanley possuem garantia vitalícia contra defeitos de fabricação. Isso cobre problemas de isolamento térmico (se o produto não mantiver a temperatura) ou qualquer defeito nos materiais e acabamento. A garantia não cobre desgaste normal, mau uso ou acidentes.</p>
+                </div>
+            </details>
+
+            <!-- Item 3: Fechado -->
+            <details>
+                <summary>
+                    <span>Posso colocar minha Stanley na máquina de lavar louça?</span>
+                    <svg class="w-6 h-6 text-stanley-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div>
+                    <p>Sim! A grande maioria dos nossos produtos atuais é segura para ir à máquina de lavar louça. Recomendamos verificar a base do seu produto para confirmação ou consultar a página específica do item em nosso site.</p>
+                </div>
+            </details>
+
+            <!-- Item 4: Fechado -->
+            <details>
+                <summary>
+                    <span>Os produtos com tampa são à prova de vazamento?</span>
+                    <svg class="w-6 h-6 text-stanley-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </summary>
+                <div>
+                    <p>Depende do modelo. Nossas garrafas térmicas (como a Classic) são totalmente à prova de vazamentos quando fechadas corretamente. Copos e canecas com tampas são projetados para resistir a respingos e manter a temperatura, mas não são 100% à prova de vazamentos se virados ou transportados de forma inadequada.</p>
+                </div>
+            </details>
+        </section>
+
+    </main>
+
+    <!-- Footer Simples -->
+    <footer class="bg-stanley-black text-gray-400 mt-16 md:mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p>&copy; 2025 Stanley. Todos os direitos reservados.</p>
+            <p class="text-sm">Esta é uma página de exemplo criada para fins de demonstração.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para o botão "Ver Mais" da seção de texto
+        document.getElementById('ver-mais-btn').addEventListener('click', function() {
+            var textContainer = document.getElementById('category-text');
+            var isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                textContainer.style.maxHeight = '10rem'; // 160px
+                this.setAttribute('aria-expanded', 'false');
+                this.innerHTML = 'Ver mais+';
+            } else {
+                textContainer.style.maxHeight = textContainer.scrollHeight + 'px'; // Expande para a altura total
+                this.setAttribute('aria-expanded', 'true');
+                this.innerHTML = 'Ver menos-';
+            }
+        });
+
+        // Script para garantir que apenas um item do FAQ fique aberto por vez (opcional, mas melhora a usabilidade)
+        const allDetails = document.querySelectorAll('details');
+
+        allDetails.forEach(details => {
+            details.addEventListener('toggle', (event) => {
+                // Se o item estiver sendo aberto
+                if (details.open) {
+                    // Fecha todos os outros
+                    allDetails.forEach(otherDetails => {
+                        if (otherDetails !== details && otherDetails.open) {
+                            otherDetails.removeAttribute('open');
+                        }
+                    });
+                }
+            });
+        });
+
+        // O item inicial 'open' será fechado pelo script acima se outro for clicado.
+        // Para manter o primeiro aberto por padrão E permitir que outros o fechem,
+        // podemos remover o 'open' inicial e abri-lo via JS.
+        // Mas para este caso, manterei o 'open' no HTML e o script acima
+        // irá gerenciar o fechamento dele caso outro seja aberto.
+        // A lógica atual já funciona como esperado.
+
+    </script>
+
+</body>
+</html>
