@@ -31,7 +31,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
+            padding: 1.25rem 0; /* Espaçamento levemente reduzido */
             border-bottom: 1px solid #e5e7eb;
             cursor: pointer;
             font-weight: 600;
@@ -86,17 +86,27 @@
             color: #ffffff;
         }
 
-        /* Classes utilitárias personalizadas para os backgrounds das seções */
-        .section-bg {
-            background-repeat: no-repeat;
-            background-position-y: bottom;
-            background-size: cover; /* Garante que a imagem cubra a área, mantendo a proporção */
-            background-position-x: center;
+        /* Classes para Background Images */
+        .bg-img-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 420px; /* Altura fixa para cortar a imagem conforme pedido (aprox 2ª linha) */
+            z-index: 0;
+            overflow: hidden;
+            border-radius: 0.75rem; /* rounded-xl */
         }
         
-        @media (min-width: 768px) {
-             .section-bg {
-                background-position-x: right; /* Em telas maiores, foca a imagem à direita */
+        .bg-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .bg-img-container {
+                height: 100%; /* No mobile, pode cobrir mais se necessário, ou manter fixo */
             }
         }
     </style>
@@ -110,11 +120,11 @@
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 space-y-16">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 space-y-12"> <!-- Reduced py and space-y -->
 
         <!-- 1. Texto de introdução -->
         <section>
-            <div class="max-w-3xl"> 
+            <div class="max-w-3xl mx-auto md:mx-0"> <!-- Mantive alinhado a esquerda conforme original, mas pode centralizar se quiser -->
                 <h1 class="text-3xl md:text-4xl font-bold text-stanley-black mb-4">
                     GUIA DE PRESENTES STANLEY: OPÇÕES LENDÁRIAS PARA CELEBRAR!
                 </h1>
@@ -126,30 +136,35 @@
         </section>
 
         <!-- 5. Seção 1: Presentes de Natal (Bar) -->
-        <section class="section-bg relative rounded-xl overflow-hidden shadow-sm" style="background-image: url('https://www.stanley1913.com/cdn/shop/files/102825_Holiday-Collection_CLP_Hero_DT.jpg?format=pjpg&v=1761664444&width=1600');">
-            <!-- Overlay gradiente suave para mobile para garantir leitura se a imagem for clara -->
-            <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent md:hidden pointer-events-none"></div>
+        <section class="relative rounded-xl shadow-sm bg-white isolate">
+            <!-- Background Image Layer (Altura limitada) -->
+            <div class="bg-img-container">
+                <!-- Object-right para focar no lado direito (elementos principais) -->
+                <img src="https://www.stanley1913.com/cdn/shop/files/102825_Holiday-Collection_CLP_Hero_DT.jpg?format=pjpg&v=1761664444&width=1600" alt="Background Natal" class="object-right opacity-90">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent md:hidden"></div>
+            </div>
 
-            <div class="relative z-10 px-6 py-12 md:p-12">
-                <div class="md:flex md:items-start md:justify-between mb-8">
-                    <!-- Título e Texto da Seção com fundo branco transparente -->
-                    <div class="max-w-xl bg-white/90 backdrop-blur-sm p-6 rounded-[5px] mb-6 md:mb-0 shadow-sm">
-                        <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-3">Presentes de Natal: Brindes Inesquecíveis</h2>
-                        <p class="text-gray-800 font-medium">Este Natal, surpreenda quem você ama com um presente que dura a vida toda. Nossa seleção da linha Bar é perfeita para celebrar os melhores momentos, mantendo a bebida na temperatura ideal.</p>
+            <div class="relative z-10 px-6 py-10 md:p-10">
+                <!-- Cabeçalho da Seção: Flex ajustado para aproximar botão -->
+                <div class="flex flex-col md:flex-row md:items-end md:justify-start gap-6 md:gap-8 mb-8">
+                    <!-- Título e Texto -->
+                    <div class="max-w-xl bg-white/90 backdrop-blur-sm p-5 rounded-[5px] shadow-sm">
+                        <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-2">Presentes de Natal: Brindes Inesquecíveis</h2>
+                        <p class="text-gray-800 font-medium leading-relaxed">Este Natal, surpreenda quem você ama com um presente que dura a vida toda. Nossa seleção da linha Bar é perfeita para celebrar os melhores momentos, mantendo a bebida na temperatura ideal.</p>
                     </div>
                     
-                    <!-- Botão Desktop -->
-                    <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="hidden md:flex items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-16 px-10 text-lg uppercase tracking-wide">
+                    <!-- Botão Desktop (Agora mais próximo devido ao gap e fim do justify-between) -->
+                    <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="hidden md:flex items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-14 px-8 text-lg uppercase tracking-wide whitespace-nowrap mb-1">
                         Ver Todos
                     </a>
                 </div>
 
-                <!-- Grid de Produtos (70% width em desktop) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 w-full md:w-[70%]">
+                <!-- Grid de Produtos (70% width) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-6 w-full md:w-[70%]">
                     <!-- Produto 1 -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <a href="#" class="block">
-                            <img src="https://www.stanley1913.com.br/cdn/shop/files/copo_473_polar_500x.png?v=1729691723" alt="Copo Térmico Polar" class="w-full h-64 object-cover object-center">
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/copo_473_polar_500x.png?v=1729691723" alt="Copo Térmico Polar" class="w-full h-56 object-cover object-center">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg text-stanley-black mb-1">Copo Térmico de Cerveja c/ Tampa | 473ML</h3>
                                 <p class="text-gray-900 font-bold text-xl">R$ 185,00</p>
@@ -160,7 +175,7 @@
                     <!-- Produto 2 -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <a href="#" class="block">
-                            <img src="https://www.stanley1913.com.br/cdn/shop/files/285398-14_500x.jpg?v=1739476299" alt="Caneca Térmica de Cerveja" class="w-full h-64 object-cover object-center">
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/285398-14_500x.jpg?v=1739476299" alt="Caneca Térmica de Cerveja" class="w-full h-56 object-cover object-center">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg text-stanley-black mb-1">Caneca Térmica de Cerveja | 709ML</h3>
                                 <p class="text-gray-900 font-bold text-xl">R$ 220,00</p>
@@ -171,7 +186,7 @@
                     <!-- Produto 3 -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <a href="#" class="block">
-                            <img src="https://www.stanley1913.com.br/cdn/shop/files/quickflip_black_500x.png?v=1741356061" alt="Garrafa Térmica Quick Flip" class="w-full h-64 object-contain p-4 bg-gray-50">
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/quickflip_black_500x.png?v=1741356061" alt="Garrafa Térmica Quick Flip" class="w-full h-56 object-contain p-4 bg-gray-50">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg text-stanley-black mb-1">Garrafa Térmica Classic c/ Rolha | 1L</h3>
                                 <p class="text-gray-900 font-bold text-xl">R$ 385,00</p>
@@ -182,35 +197,40 @@
                 </div>
                 
                 <!-- Botão Mobile -->
-                <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="flex md:hidden mt-6 items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-16 w-full text-lg uppercase tracking-wide">
+                <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="flex md:hidden mt-6 items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-14 w-full text-lg uppercase tracking-wide">
                     Ver Todos
                 </a>
             </div>
         </section>
         
         <!-- 6. Seção 2: Presentes para Amantes de Café -->
-        <section class="section-bg relative rounded-xl overflow-hidden shadow-sm" style="background-image: url('https://www.stanley1913.com/cdn/shop/files/100725_Coffee-Tea_CLP_Hero_DT.jpg?format=pjpg&v=1760566927&width=1600');">
-             <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent md:hidden pointer-events-none"></div>
+        <section class="relative rounded-xl shadow-sm bg-white isolate">
+             <!-- Background Image Layer -->
+             <div class="bg-img-container">
+                <!-- Object-right para focar no lado direito (copos/elementos de café) -->
+                <img src="https://www.stanley1913.com/cdn/shop/files/100725_Coffee-Tea_CLP_Hero_DT.jpg?format=pjpg&v=1760566927&width=1600" alt="Background Café" class="object-cover object-right">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent md:hidden"></div>
+            </div>
 
-            <div class="relative z-10 px-6 py-12 md:p-12">
-                <div class="md:flex md:items-start md:justify-between mb-8">
+            <div class="relative z-10 px-6 py-10 md:p-10">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-start gap-6 md:gap-8 mb-8">
                     <!-- Título e Texto -->
-                    <div class="max-w-xl bg-white/90 backdrop-blur-sm p-6 rounded-[5px] mb-6 md:mb-0 shadow-sm">
-                        <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-3">Para Amantes de Café</h2>
-                        <p class="text-gray-800 font-medium">O presente ideal para quem não abre mão de um bom café. Nossos produtos mantêm a bebida na temperatura perfeita, da primeira à última gota, seja na trilha ou no escritório.</p>
+                    <div class="max-w-xl bg-white/90 backdrop-blur-sm p-5 rounded-[5px] shadow-sm">
+                        <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-2">Para Amantes de Café</h2>
+                        <p class="text-gray-800 font-medium leading-relaxed">O presente ideal para quem não abre mão de um bom café. Nossos produtos mantêm a bebida na temperatura perfeita, da primeira à última gota, seja na trilha ou no escritório.</p>
                     </div>
                     <!-- Botão Desktop -->
-                    <a href="https://www.stanley1913.com.br/collections/cafe" target="_blank" class="hidden md:flex items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-16 px-10 text-lg uppercase tracking-wide">
+                    <a href="https://www.stanley1913.com.br/collections/cafe" target="_blank" class="hidden md:flex items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-14 px-8 text-lg uppercase tracking-wide whitespace-nowrap mb-1">
                         Ver Todos
                     </a>
                 </div>
 
                 <!-- Grid de Produtos (70% width) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 w-full md:w-[70%]">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-6 w-full md:w-[70%]">
                     <!-- Produto 1 -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <a href="#" class="block">
-                            <img src="https://www.stanley1913.com.br/cdn/shop/files/everyday_stainless_500x.png?v=1730203907" alt="Copo Térmico Everyday" class="w-full h-64 object-contain p-4">
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/everyday_stainless_500x.png?v=1730203907" alt="Copo Térmico Everyday" class="w-full h-56 object-contain p-4">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg text-stanley-black mb-1">Copo Térmico Everyday | 296ML</h3>
                                 <p class="text-gray-900 font-bold text-xl">R$ 130,00</p>
@@ -221,7 +241,7 @@
                     <!-- Produto 2 -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <a href="#" class="block">
-                            <img src="https://www.stanley1913.com.br/cdn/shop/files/adventure_toast_1_500x.png?v=1752510126" alt="Garrafa Térmica Adventure" class="w-full h-64 object-contain p-4">
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/adventure_toast_1_500x.png?v=1752510126" alt="Garrafa Térmica Adventure" class="w-full h-56 object-contain p-4">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg text-stanley-black mb-1">Garrafa Térmica Classic | 1.4L</h3>
                                 <p class="text-gray-900 font-bold text-xl">R$ 410,00</p>
@@ -232,7 +252,7 @@
                     <!-- Produto 3 -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <a href="#" class="block">
-                            <img src="https://www.stanley1913.com.br/cdn/shop/files/285325-14_500x.jpg?v=1719250876" alt="Caneca Térmica Camp" class="w-full h-64 object-contain p-4">
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/285325-14_500x.jpg?v=1719250876" alt="Caneca Térmica Camp" class="w-full h-56 object-contain p-4">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg text-stanley-black mb-1">Caneca Térmica Camp | 354ML</h3>
                                 <p class="text-gray-900 font-bold text-xl">R$ 165,00</p>
@@ -243,35 +263,40 @@
                 </div>
                 
                 <!-- Botão Mobile -->
-                <a href="https://www.stanley1913.com.br/collections/cafe" target="_blank" class="flex md:hidden mt-6 items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-16 w-full text-lg uppercase tracking-wide">
+                <a href="https://www.stanley1913.com.br/collections/cafe" target="_blank" class="flex md:hidden mt-6 items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-14 w-full text-lg uppercase tracking-wide">
                     Ver Todos
                 </a>
             </div>
         </section>
 
         <!-- 7. Seção 3: Presentes para Dia dos Pais (Bar) -->
-        <section class="section-bg relative rounded-xl overflow-hidden shadow-sm" style="background-image: url('https://www.stanley1913.com/cdn/shop/files/NAM_HOL25_Gift-Guides_Him_CLP_DT.jpg?format=pjpg&v=1762212620&width=1600');">
-             <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent md:hidden pointer-events-none"></div>
+        <section class="relative rounded-xl shadow-sm bg-white isolate">
+             <!-- Background Image Layer -->
+             <div class="bg-img-container">
+                <!-- Object-right para focar no homem caminhando -->
+                <img src="https://www.stanley1913.com/cdn/shop/files/NAM_HOL25_Gift-Guides_Him_CLP_DT.jpg?format=pjpg&v=1762212620&width=1600" alt="Background Dia dos Pais" class="object-cover object-right">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/50 to-transparent md:hidden"></div>
+            </div>
 
-            <div class="relative z-10 px-6 py-12 md:p-12">
-                <div class="md:flex md:items-start md:justify-between mb-8">
+            <div class="relative z-10 px-6 py-10 md:p-10">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-start gap-6 md:gap-8 mb-8">
                     <!-- Título e Texto -->
-                    <div class="max-w-xl bg-white/90 backdrop-blur-sm p-6 rounded-[5px] mb-6 md:mb-0 shadow-sm">
-                        <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-3">Presentes para o Dia dos Pais</h2>
-                        <p class="text-gray-800 font-medium">Seu pai merece um presente lendário. A linha Bar é a escolha certa para pais que apreciam um bom happy hour, garantindo a cerveja gelada até o último gole.</p>
+                    <div class="max-w-xl bg-white/90 backdrop-blur-sm p-5 rounded-[5px] shadow-sm">
+                        <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-2">Presentes para o Dia dos Pais</h2>
+                        <p class="text-gray-800 font-medium leading-relaxed">Seu pai merece um presente lendário. A linha Bar é a escolha certa para pais que apreciam um bom happy hour, garantindo a cerveja gelada até o último gole.</p>
                     </div>
                     <!-- Botão Desktop -->
-                    <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="hidden md:flex items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-16 px-10 text-lg uppercase tracking-wide">
+                    <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="hidden md:flex items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-14 px-8 text-lg uppercase tracking-wide whitespace-nowrap mb-1">
                         Ver Todos
                     </a>
                 </div>
 
                 <!-- Grid de Produtos (70% width) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 w-full md:w-[70%]">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-6 w-full md:w-[70%]">
                     <!-- Produto 1 -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <a href="#" class="block">
-                            <img src="https://www.stanley1913.com.br/cdn/shop/files/copo_pomegranate1.png?v=1739630783&width=700" alt="Copo Térmico Pomegranate" class="w-full h-64 object-contain p-4">
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/copo_pomegranate1.png?v=1739630783&width=700" alt="Copo Térmico Pomegranate" class="w-full h-56 object-contain p-4">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg text-stanley-black mb-1">Copo Térmico de Cerveja c/ Tampa | 473ML</h3>
                                 <p class="text-gray-900 font-bold text-xl">R$ 185,00</p>
@@ -282,7 +307,7 @@
                     <!-- Produto 2 -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <a href="#" class="block">
-                            <img src="https://www.stanley1913.com.br/cdn/shop/files/285442-10_500x.jpg?v=1747143762" alt="Caneca Térmica" class="w-full h-64 object-cover object-center">
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/285442-10_500x.jpg?v=1747143762" alt="Caneca Térmica" class="w-full h-56 object-cover object-center">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg text-stanley-black mb-1">Caneca Térmica de Cerveja | 709ML</h3>
                                 <p class="text-gray-900 font-bold text-xl">R$ 220,00</p>
@@ -293,7 +318,7 @@
                     <!-- Produto 3 -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <a href="#" class="block">
-                            <img src="https://www.stanley1913.com.br/cdn/shop/files/growler_black_500x.png?v=1730208136" alt="Growler Térmico Black" class="w-full h-64 object-contain p-4">
+                            <img src="https://www.stanley1913.com.br/cdn/shop/files/growler_black_500x.png?v=1730208136" alt="Growler Térmico Black" class="w-full h-56 object-contain p-4">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg text-stanley-black mb-1">Garrafa Térmica Classic c/ Rolha | 1L</h3>
                                 <p class="text-gray-900 font-bold text-xl">R$ 385,00</p>
@@ -304,15 +329,16 @@
                 </div>
                 
                 <!-- Botão Mobile -->
-                <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="flex md:hidden mt-6 items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-16 w-full text-lg uppercase tracking-wide">
+                <a href="https://www.stanley1913.com.br/collections/bar" target="_blank" class="flex md:hidden mt-6 items-center justify-center bg-stanley-red text-white font-bold rounded-lg shadow-md hover:bg-stanley-red-dark transition-all opacity-[0.97] h-14 w-full text-lg uppercase tracking-wide">
                     Ver Todos
                 </a>
             </div>
         </section>
 
         <!-- 8. Seção de Texto de Categoria com Ver Mais -->
-        <section class="mt-16 md:mt-24 pt-8 border-t border-gray-200">
-            <div class="max-w-3xl"> 
+        <section class="mt-12 md:mt-16 pt-8 border-t border-gray-200">
+            <!-- Centralizado com mx-auto -->
+            <div class="max-w-3xl mx-auto"> 
                 <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-4">Mais sobre Nossos Presentes</h2>
                 <div id="category-text" class="text-gray-700 space-y-4 max-h-40 overflow-hidden transition-all duration-500 ease-in-out">
                     <p>Encontrar o presente perfeito pode ser um desafio, mas a Stanley facilita para você. Nossos produtos são feitos para durar, com a lendária garantia vitalícia e o poder de manter suas bebidas na temperatura ideal por horas a fio.</p>
@@ -327,7 +353,7 @@
         </section>
         
         <!-- 9. Seção de FAQ -->
-        <section class="max-w-3xl"> 
+        <section class="max-w-3xl mx-auto pb-12"> 
             <h2 class="text-2xl md:text-3xl font-bold text-stanley-black mb-4">Perguntas Frequentes</h2>
             
             <details open>
@@ -380,7 +406,7 @@
     </main>
 
     <!-- Footer Simples -->
-    <footer class="bg-stanley-black text-gray-400 mt-16 md:mt-24">
+    <footer class="bg-stanley-black text-gray-400 mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
             <p>&copy; 2025 Stanley. Todos os direitos reservados.</p>
             <p class="text-sm">Esta é uma página de exemplo criada para fins de demonstração.</p>
