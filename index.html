@@ -96,7 +96,8 @@
         
         @media (min-width: 768px) {
              .section-bg {
-                background-position-x: right; /* Em telas maiores, foca a imagem à direita */
+                /* Alterado de 'right' para 'left' para exibir os elementos principais que estão à esquerda nas imagens */
+                background-position-x: left; 
             }
         }
     </style>
@@ -110,12 +111,12 @@
         </div>
     </header>
 
-    <!-- Main Ajustada: py-8 (reduzido) e space-y-6 (reduzido de 16 para 6) -->
+    <!-- Main Ajustada: py-8 e space-y-6 -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
         <!-- 1. Texto de introdução -->
         <section>
-            <div class="max-w-3xl"> 
+            <div class="max-w-3xl mx-auto"> 
                 <h1 class="text-3xl md:text-4xl font-bold text-stanley-black mb-4">
                     GUIA DE PRESENTES STANLEY: OPÇÕES LENDÁRIAS PARA CELEBRAR!
                 </h1>
@@ -127,11 +128,12 @@
         </section>
 
         <!-- 5. Seção 1: Presentes de Natal (Bar) -->
+        <!-- Padding reduzido para py-8 md:p-8 para alinhar melhor o fundo com o conteúdo -->
         <section class="section-bg relative rounded-xl overflow-hidden shadow-sm" style="background-image: url('https://www.stanley1913.com/cdn/shop/files/102825_Holiday-Collection_CLP_Hero_DT.jpg?format=pjpg&v=1761664444&width=1600');">
             <!-- Overlay gradiente suave para mobile para garantir leitura se a imagem for clara -->
             <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent md:hidden pointer-events-none"></div>
 
-            <div class="relative z-10 px-6 py-12 md:p-12">
+            <div class="relative z-10 px-6 py-8 md:p-8">
                 <div class="md:flex md:items-start md:justify-between mb-8">
                     <!-- Título e Texto da Seção com fundo branco transparente -->
                     <div class="max-w-xl bg-white/90 backdrop-blur-sm p-6 rounded-[5px] mb-6 md:mb-0 shadow-sm">
@@ -193,7 +195,7 @@
         <section class="section-bg relative rounded-xl overflow-hidden shadow-sm" style="background-image: url('https://www.stanley1913.com/cdn/shop/files/100725_Coffee-Tea_CLP_Hero_DT.jpg?format=pjpg&v=1760566927&width=1600');">
              <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent md:hidden pointer-events-none"></div>
 
-            <div class="relative z-10 px-6 py-12 md:p-12">
+            <div class="relative z-10 px-6 py-8 md:p-8">
                 <div class="md:flex md:items-start md:justify-between mb-8">
                     <!-- Título e Texto -->
                     <div class="max-w-xl bg-white/90 backdrop-blur-sm p-6 rounded-[5px] mb-6 md:mb-0 shadow-sm">
@@ -254,7 +256,7 @@
         <section class="section-bg relative rounded-xl overflow-hidden shadow-sm" style="background-image: url('https://www.stanley1913.com/cdn/shop/files/NAM_HOL25_Gift-Guides_Him_CLP_DT.jpg?format=pjpg&v=1762212620&width=1600');">
              <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent md:hidden pointer-events-none"></div>
 
-            <div class="relative z-10 px-6 py-12 md:p-12">
+            <div class="relative z-10 px-6 py-8 md:p-8">
                 <div class="md:flex md:items-start md:justify-between mb-8">
                     <!-- Título e Texto -->
                     <div class="max-w-xl bg-white/90 backdrop-blur-sm p-6 rounded-[5px] mb-6 md:mb-0 shadow-sm">
